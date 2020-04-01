@@ -4,6 +4,7 @@ import './App.css';
 import About from './component/About'
 import Home from './component/Home'
 import NoMatch from './component/Error'
+import Profile from './component/Profile'
 import queryString from 'query-string'
 import {
   BrowserRouter as Router,
@@ -106,6 +107,15 @@ function App() {
         </NavLink>
       </li>
       <li>
+        <NavLink exact to='/profile' 
+        activeStyle={{
+          fontWeight: "bold",
+          color: "red"
+        }}>
+        Profile
+        </NavLink>
+      </li>
+      <li>
         <NavLink exact to='/user/Lily?a=b' 
         activeStyle={{
           fontWeight: "bold",
@@ -144,6 +154,7 @@ function App() {
      */}
      <Switch>
       <Route path='/' component={Home} exact/>
+      <Route path='/profile' component={Profile} exact/>
       <Route path='/about' component={About} exact/>
       <Route path='/new_home' render={()=><div>welcome new Home</div>} exact/>
       <Route path='/other_home' render={(props)=><Home {...props} name='Alex'/>} exact/>
